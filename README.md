@@ -50,28 +50,29 @@ and after that - run as standalone application
    ```http
    POST http://localhost/api/v1/calculate
    Content-Type: application/json
-
    {
      "expression": ""
    }
    ```
+   ## api/v1/expressions
+   ### OK Expression.
+   Expect code 200 and response
+   ```json
+   {
+       "expressions": [
+           {
+              "id": "0A2DDEF9-F67C-6899-5F72-25639EEBD08F",
+               "result": 0,
+               "status": "pending"
+           }
+       ]
+   }
+   ```
 
-## api/v1/expressions
-### OK Expression.
-    Expect code 200 and response
-    {
-        "expressions": [
-            {
-            "id": "0A2DDEF9-F67C-6899-5F72-25639EEBD08F",
-            "result": 0,
-            "status": "pending"
-            }
-        ]
-    }
+   ```http
+   GET http://localhost/api/v1/expressions
+   ```
 
-    ```http
-    GET http://localhost/api/v1/expressions
-    ```
 You can do a simple test with curl like
 ```
 curl --location 'localhost/api/v1/calculate' \
